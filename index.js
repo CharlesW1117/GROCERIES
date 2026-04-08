@@ -84,7 +84,7 @@ console.log(getCheapItems(INVENTORY));
  * @returns {number} the total quantity of all items given
  */
 function countItems(items) {
-  return items.reduce((total, item) => total + item.quantity, 0);
+  return items.reduce((count, item) => count + item.quantity, 0);
 }
 console.log(countItems(INVENTORY));
 /**
@@ -100,10 +100,11 @@ console.log(getTotalCost(INVENTORY));
  * @returns {Item} the item with the highest price
  */
 function getMostExpensiveItem(items) {
-  return items.reduce((currentMax, item) => {
-    return item.price > currentMax.price ? item : currentMax;
-  });
-}
+  return items.reduce((mostexpensive, item) =>
+     item.price > mostexpensive.price ? item : mostexpensive,
+  )
+  };
+
 console.log(getMostExpensiveItem(INVENTORY));
 
 
